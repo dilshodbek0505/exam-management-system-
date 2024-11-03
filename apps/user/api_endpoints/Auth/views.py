@@ -24,7 +24,7 @@ class LoginApi(GenericAPIView):
         serializer = self.serializer_class(data=self.request.data)
         serializer.is_valid(raise_exception=True)
         
-        return Response(serializer.data, status=200)
+        return Response(serializer.validated_data, status=200)
     
 class ForgotPasswordApi(GenericAPIView):
     serializer_class = ForgotPasswordSerializer
